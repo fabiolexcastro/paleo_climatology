@@ -33,6 +33,15 @@ extract_mask <- function(pth){
   fls <- grep('.tiff$', fls, value = TRUE)
   
   # To read as a terra/raster files
+  trr <- purrr::map(.x = 1:length(fls), .f = fucntion(i){
+    
+    cat(fls[i], '\n')
+    rst <- terra::rast(fls[i])
+    rst
+    
+    
+  })
+  
   
   
   

@@ -12,12 +12,20 @@ options(scipen = 999, warn = -1)
 setwd('E:/climate_article')
 
 zone <- terra::vect('suisse_shp/suisse.shp')
-dirs <- dir_ls('SilvanaData')
+dirs <- dir_ls('SilvanaData', type = 'directory')
 
 # Plotting the study zone 
 plot(zone)
 
 # Function to use ---------------------------------------------------------
 
+dir <- dirs[1]
+
+extract_mask <- function(pth){
+  
+  
+  
+  
+}
 
 

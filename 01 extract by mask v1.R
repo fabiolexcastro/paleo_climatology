@@ -53,7 +53,17 @@ plot(zone)
 # To extract by mask  -----------------------------------------------------
 purrr::map(.x = dirs, .f = extract_mask)
 
+# To fix a folder ---------------------------------------------------------
+fldr <- 'SilvanaData/-00500'
+fixd <- dir_ls(fldr)
 
+for(i in 1:12){
+  
+  cat(i, '\n')
+  file.rename(from = fixd[i], to = glue('{fixd[i]}.tiff'))
+  cat('Done!\n')
+  
+}
 
 
 

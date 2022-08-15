@@ -51,6 +51,9 @@ dirs <- dir_ls('SilvanaData', type = 'directory')
 plot(zone)
 
 # To extract by mask  -----------------------------------------------------
+purrr::map(.x = dirs, .f = extract_mask)
+
+
 
 
 

@@ -10,7 +10,7 @@ options(scipen = 999, warn = -1)
 
 # Load data ---------------------------------------------------------------
 setwd('E:/climate_article')
-
+s
 zone <- terra::vect('suisse_shp/suisse.shp')
 fles <- dir_ls('SilvanaData')
 

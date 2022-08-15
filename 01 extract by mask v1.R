@@ -20,7 +20,7 @@ plot(zone)
 # Function to use ---------------------------------------------------------
 
 # Proof
-dir <- dirs[1]
+pth <- dirs[1]
 
 extract_mask <- function(pth){
   

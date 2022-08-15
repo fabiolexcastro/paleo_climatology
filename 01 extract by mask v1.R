@@ -8,22 +8,8 @@ g <- gc(reset = TRUE)
 rm(list = ls())
 options(scipen = 999, warn = -1)
 
-# Load data ---------------------------------------------------------------
-setwd('E:/climate_article')
-
-zone <- terra::vect('suisse_shp/suisse.shp')
-dirs <- dir_ls('SilvanaData', type = 'directory')
-
-# Plotting the study zone 
-plot(zone)
-
 # Function to use ---------------------------------------------------------
-
-# Proof
-pth <- dirs[1]
-
 extract_mask <- function(pth){
-  
   
   # Filtering and listing the files
   cat(pth, '\n')
@@ -32,6 +18,8 @@ extract_mask <- function(pth){
   fls <- as.character(fls)
   fls <- grep('.tiff$', fls, value = TRUE)
   out <- unique(dirname(fls))
+  out <- glue('{out}/suisse')
+  dir_create(out)
   
   # To read as a terra/raster files
   trr <- purrr::map(.x = 1:length(fls), .f = function(i){
@@ -48,12 +36,23 @@ extract_mask <- function(pth){
     
   })
   
-  
-  
-  
-  
-  
+  rm(fls, trr, out)
+  cat('Done!\n')
   
 }
+
+# Load data ---------------------------------------------------------------
+setwd('E:/climate_article')
+
+zone <- terra::vect('suisse_shp/suisse.shp')
+dirs <- dir_ls('SilvanaData', type = 'directory')
+
+# Plotting the study zone 
+plot(zone)
+
+# To extract by mask  -----------------------------------------------------
+
+
+
 
 

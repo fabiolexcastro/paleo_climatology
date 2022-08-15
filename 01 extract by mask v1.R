@@ -37,10 +37,13 @@ extract_mask <- function(pth){
     
     cat(fls[i], '\n')
     rst <- terra::rast(fls[i])
-    rst
-    
+    rst <- terra::crop(rst, zone)
+    rst <- terra::mask(rst, zone)
+    return(rst)
     
   })
+  
+  
   
   
   

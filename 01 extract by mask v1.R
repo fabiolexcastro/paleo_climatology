@@ -31,6 +31,7 @@ extract_mask <- function(pth){
   fls <- dir_ls(pth)
   fls <- as.character(fls)
   fls <- grep('.tiff$', fls, value = TRUE)
+  out <- unique(dirname(fls))
   
   # To read as a terra/raster files
   trr <- purrr::map(.x = 1:length(fls), .f = fucntion(i){
@@ -39,6 +40,9 @@ extract_mask <- function(pth){
     rst <- terra::rast(fls[i])
     rst <- terra::crop(rst, zone)
     rst <- terra::mask(rst, zone)
+    nme <- basename(fls[i])
+    nme <- gsub('.tiff$', '.tif', nme)
+    terra::writeRaster(x = rst, filename = glue('{out}/{nme}'), overwrite = TRUE)
     return(rst)
     
   })

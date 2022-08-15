@@ -24,10 +24,17 @@ pth <- dirs[1]
 
 extract_mask <- function(pth){
   
+  
+  # Filtering and listing the files
   cat(pth, '\n')
   pth <- as.character(pth)
   fls <- dir_ls(pth)
   fls <- as.character(fls)
+  fls <- grep('.tiff$', fls, value = TRUE)
+  
+  # To read as a terra/raster files
+  
+  
   
   
 }

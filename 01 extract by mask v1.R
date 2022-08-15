@@ -19,11 +19,15 @@ plot(zone)
 
 # Function to use ---------------------------------------------------------
 
+# Proof
 dir <- dirs[1]
 
 extract_mask <- function(pth){
   
-  
+  cat(pth, '\n')
+  pth <- as.character(pth)
+  fls <- dir_ls(pth)
+  fls <- as.character(fls)
   
   
 }

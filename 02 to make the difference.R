@@ -43,8 +43,11 @@ purrr::map(.x = 1:length(year), .f = function(i){
   
   # Read as a raster files (terra library)
   plo <- terra::rast(fls)
-  plot(plo[[1]])
-  nlyr(plo)
+  
+  # To make the difference 
+  dfr <- bsln - plo
+  
+  
   
 })
 

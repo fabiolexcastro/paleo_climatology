@@ -1,4 +1,4 @@
-
+rsl
 # Load libraries ----------------------------------------------------------
 require(pacman)
 pacman::p_load(terra, sf, tidyverse, rgeos, gtools, fs, glue)
@@ -33,7 +33,7 @@ plot(bsln[[1]])
 # Remove baseline from the years 
 year <- year[-grep('\\+02000', year, value = FALSE)]
 
-# Mapping a function 
+# Mapping a function ------------------------------------------------------
 purrr::map(.x = 1:length(year), .f = function(i){
   
   # Filtering 
@@ -53,7 +53,9 @@ purrr::map(.x = 1:length(year), .f = function(i){
   out <- glue('{out}/difference')
   dir_create(out)
   
-  
+  terra::writeRaster(dfr, glue('{out}/dffr_suisse_paleo_tmean_{yea}.tif'), overwrite = TRUE)
+  rm(yea, fls, plo, dfr, out, dfr)
+  cat('Done!\n')
   
 })
 

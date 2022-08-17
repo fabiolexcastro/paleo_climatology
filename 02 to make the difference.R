@@ -31,5 +31,18 @@ bsln <- terra::rast(bsln)
 plot(bsln[[1]])
 
 # Remove baseline from the years 
-year <- year[-grep('+02000', year, value = FALSE)]
+year <- year[-grep('\\+02000', year, value = FALSE)]
+
+# Mapping a function 
+purrr::map(.x = 1:length(year), .f = function(i){
+  
+  # Filtering 
+  cat(year[i], '\n')
+  yea <- year[i]
+  fls <- grep(yea, year, value = TRUE)
+  print(fls)
+  
+  
+  
+})
 

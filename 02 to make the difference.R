@@ -47,6 +47,10 @@ purrr::map(.x = 1:length(year), .f = function(i){
   # To make the difference 
   dfr <- bsln - plo
   
+  # To write these results 
+  out <- dirname(fls)
+  out <- unique(out)
+  
   
   
 })

@@ -20,3 +20,4 @@ fles <- grep('.tif$', fles, value = TRUE)
 print(fles)
 
 fles <- as.character(fles)
+fles <- grep('suisse_paleo_tmean', fles, value = T)

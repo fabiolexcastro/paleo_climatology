@@ -26,5 +26,5 @@ fles <- grep(paste0(c('suisse_paleo_tmean', 'suisse_current_tmean'), collapse = 
 year <- basename(fles) %>% str_split(pattern = '_') %>% map(., 4) %>% unlist() %>% unique()
 
 # To calculate the difference ---------------------------------------------
-bsln <- grep('+02000', fles, value = TRUE)
+bsln <- grep('+02000', fles, value = TRUE) %>% grep('current', ., value = TRUE)
 

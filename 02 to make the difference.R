@@ -1,5 +1,4 @@
 
-
 # Load libraries ----------------------------------------------------------
 require(pacman)
 pacman::p_load(terra, sf, tidyverse, rgeos, gtools, fs, glue)
@@ -19,3 +18,5 @@ fles <- map(dirs, dir_ls)
 fles <- flatten(fles)
 fles <- grep('.tif$', fles, value = TRUE)
 print(fles)
+
+fles <- as.character(fles)

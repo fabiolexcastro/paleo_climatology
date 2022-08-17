@@ -23,4 +23,5 @@ fles <- as.character(fles)
 fles <- grep('suisse_paleo_tmean', fles, value = T)
 
 # Get the year of each file  ----------------------------------------------
-basename(fles) %>% str_split(pattern = '_')
+basename(fles) %>% str_split(pattern = '_') %>% map(., 4)
+

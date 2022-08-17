@@ -39,10 +39,12 @@ purrr::map(.x = 1:length(year), .f = function(i){
   # Filtering 
   cat(year[i], '\n')
   yea <- year[i]
-  fls <- grep(yea, year, value = TRUE)
-  print(fls)
+  fls <- grep(yea, fles, value = TRUE)
   
-  
+  # Read as a raster files (terra library)
+  plo <- terra::rast(fls)
+  plot(plo[[1]])
+  nlyr(plo)
   
 })
 

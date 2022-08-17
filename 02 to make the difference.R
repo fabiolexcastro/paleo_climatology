@@ -20,8 +20,11 @@ fles <- grep('.tif$', fles, value = TRUE)
 print(fles)
 
 fles <- as.character(fles)
-fles <- grep('suisse_paleo_tmean', fles, value = T)
+fles <- grep(paste0(c('suisse_paleo_tmean', 'suisse_current_tmean'), collapse = '|'), fles, value = T)
 
 # Get the year of each file  ----------------------------------------------
 year <- basename(fles) %>% str_split(pattern = '_') %>% map(., 4) %>% unlist() %>% unique()
 
+
+# Check each folder  ------------------------------------------------------
+dir_la('Silvanna')

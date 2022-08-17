@@ -29,3 +29,7 @@ year <- basename(fles) %>% str_split(pattern = '_') %>% map(., 4) %>% unlist() %
 bsln <- grep('+02000', fles, value = TRUE) %>% grep('current', ., value = TRUE)
 bsln <- terra::rast(bsln)
 plot(bsln[[1]])
+
+# Remove baseline from the years 
+year <- year[-grep('+02000', year, value = FALSE)]
+

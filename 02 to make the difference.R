@@ -50,6 +50,8 @@ purrr::map(.x = 1:length(year), .f = function(i){
   # To write these results 
   out <- dirname(fls)
   out <- unique(out)
+  out <- glue('{out}/difference')
+  dir_create(out)
   
   
   

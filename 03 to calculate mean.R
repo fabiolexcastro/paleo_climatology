@@ -48,3 +48,5 @@ vles <- purrr::map(.x = 1:length(dirs), .f = function(i){
 
 vles <- bind_rows(vles)
 vles <- as_tibble(vles)
+vles <- mutate(vles, year = parse_number(name))
+vles <- dplyr::select(vles, name, year, value_change)

@@ -23,10 +23,8 @@ dirs <- as.character(dirs)
 print(dirs)
 
 # Read as terra raster files
-# Proof 
-i <- 1
 
-rstr <- purrr::map(.x = 1:length(dirs), .f = function(i){
+vles <- purrr::map(.x = 1:length(dirs), .f = function(i){
   
   cat(i, '\n')
   rst <- terra::rast(dirs[i])
@@ -44,5 +42,7 @@ rstr <- purrr::map(.x = 1:length(dirs), .f = function(i){
   
   rsl <- tibble(name = basename(dirs[i]), value_change = vle)
   head(rsl)
+  
+  return(rsl)
   
 })

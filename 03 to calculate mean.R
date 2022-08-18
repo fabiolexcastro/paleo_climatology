@@ -21,3 +21,16 @@ dirs <- map(dirs, dir_ls)
 dirs <- flatten(dirs)
 dirs <- as.character(dirs)
 print(dirs)
+
+# Read as terra raster files
+# Proof 
+i <- 1
+
+rstr <- purrr::map(.x = 1:length(dirs), .f = function(i){
+  
+  cat(i, '\n')
+  rst <- terra::rast(dirs[i])
+  rst
+  plot(rst)
+  
+})

@@ -32,7 +32,11 @@ rstr <- purrr::map(.x = 1:length(dirs), .f = function(i){
   rst <- terra::rast(dirs[i])
   rst
   
-  avg <- maan(rst)
+  avg <- mean(rst)
   plot(avg)
+  
+  tbl <- terra::as.data.frame(avg, xy = TRUE)
+  colnames(tbl) <- c('lon', 'lat', 'value')
+  head(tbl)
   
 })

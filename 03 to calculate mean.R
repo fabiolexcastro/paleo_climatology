@@ -23,7 +23,6 @@ dirs <- as.character(dirs)
 print(dirs)
 
 # Read as terra raster files
-
 vles <- purrr::map(.x = 1:length(dirs), .f = function(i){
   
   cat(i, '\n')

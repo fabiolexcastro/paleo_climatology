@@ -16,5 +16,8 @@ print(dirs)
 dirs <- glue('{dirs}/suisse')
 map(dirs, dir_ls)
 dirs <- glue('{dirs}/difference')
-dirs <- dirs[-grep('\\+2000', dirs, value = FALSE)]
-map(dirs, dir_ls)
+dirs <- dirs[-grep('\\+02000', dirs, value = FALSE)]
+dirs <- map(dirs, dir_ls)
+dirs <- flatten(dirs)
+dirs <- as.character(dirs)
+print(dirs)

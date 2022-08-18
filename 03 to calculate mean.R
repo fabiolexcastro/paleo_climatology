@@ -76,22 +76,10 @@ gln2 <- ggplot(data = vles, aes(x = year, y = value_change / 10)) +
   theme_minimal() + 
   theme(panel.grid.minor = element_blank(), 
         axis.title.x = element_text(face = 'bold'), 
+        axis.text.x = element_text(angle = 90, hjust = 0.5),
         axis.title.y = element_text(face = 'bold'))
 
 gln2
-
-
-scale_liary
-
-gln2 <- ggplot(data = vles, aes(x = year, y = value_change / 10)) + 
-  geom_line(group = 1) + 
-  labs(x = 'Year', y = 'Change value (\u00B0C)') + 
-  scale_x_continous(breaks = vles$year) + 
-  theme_minimal() + 
-  theme(panel.grid.minor = element_blank(), 
-        axis.text.x = element_text(angle = 90, hjust = 0.5),
-        axis.title.x = element_text(face = 'bold'), 
-        axis.title.y = element_text(face = 'bold'))
 
 
 

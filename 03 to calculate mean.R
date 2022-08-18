@@ -45,3 +45,6 @@ vles <- purrr::map(.x = 1:length(dirs), .f = function(i){
   return(rsl)
   
 })
+
+vles <- bind_rows(vles)
+vles <- as_tibble(vles)

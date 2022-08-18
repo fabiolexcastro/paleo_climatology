@@ -31,6 +31,8 @@ rstr <- purrr::map(.x = 1:length(dirs), .f = function(i){
   cat(i, '\n')
   rst <- terra::rast(dirs[i])
   rst
-  plot(rst)
+  
+  avg <- maan(rst)
+  plot(avg)
   
 })

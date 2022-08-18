@@ -54,6 +54,9 @@ vles <- dplyr::select(vles, name, year, value_change)
 dir_create('tbl/results')
 write.csv(vles, 'tbl/results/time_line_difference.csv', row.names = FALSE)
 
+vles <- mutate(vles, year_real = 1950 - year)
+vles
+
 # To make the graph
 glne <- ggplot(data = vles, aes(x = year, y = value_change / 10)) + 
   geom_line(group = 1) + 

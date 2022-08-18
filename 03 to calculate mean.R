@@ -39,4 +39,10 @@ rstr <- purrr::map(.x = 1:length(dirs), .f = function(i){
   colnames(tbl) <- c('lon', 'lat', 'value')
   head(tbl)
   
+  vle <- mean(pull(tbl, value))
+  vle
+  
+  rsl <- tibble(name = basename(dirs[i]), value_change = vle)
+  head(rsl)
+  
 })

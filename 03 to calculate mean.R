@@ -58,7 +58,7 @@ vles <- mutate(vles, year_real = 1950 - abs(year))
 vles
 
 # To make the graph
-glne <- ggplot(data = vles, aes(x = year, y = value_change / 10)) + 
+glne <- ggplot(data = vles, aes(x = year_real, y = value_change / 10)) + 
   geom_line(group = 1) + 
   labs(x = 'Year', y = 'Change value (\u00B0C)') + 
   theme_minimal() + 
@@ -72,7 +72,7 @@ dir_create('png/graphs')
 ggsave(plot = glne, filename = glue('png/graphs/g_line_v1.png'), units = 'in', width = 8, height = 6, dpi = 300)
 
 # Secondary graph
-gln2 <- ggplot(data = vles, aes(x = year, y = value_change / 10)) + 
+gln2 <- ggplot(data = vles, aes(x = year_real, y = value_change / 10)) + 
   geom_line(group = 1) + 
   labs(x = 'Year', y = 'Change value (\u00B0C)') + 
   scale_x_continuous(breaks = vles$year) +
@@ -84,5 +84,6 @@ gln2 <- ggplot(data = vles, aes(x = year, y = value_change / 10)) +
 
 gln2
 
+ggsave(plot = gln2, filename = glue('png/graphs/g_line_v2.png'), units = 'in', width = 8, height = 6, dpi = 300)
 
 

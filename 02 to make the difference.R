@@ -54,7 +54,7 @@ purrr::map(.x = 1:length(year), .f = function(i){
   dir_create(out)
   
   terra::writeRaster(dfr, glue('{out}/dffr_suisse_paleo_tmean_{yea}.tif'), overwrite = TRUE)
-  rm(yea, fls, plo, dfr, out, dfr)
+  rm(yea, fls, plo, dfr, out)
   cat('Done!\n')
   
 })

@@ -50,3 +50,11 @@ vles <- bind_rows(vles)
 vles <- as_tibble(vles)
 vles <- mutate(vles, year = parse_number(name))
 vles <- dplyr::select(vles, name, year, value_change)
+
+dir_create('tbl/results')
+write.csv(vles, 'tbl/results/time_line_difference.csv', row.names = FALSE)
+
+
+
+
+

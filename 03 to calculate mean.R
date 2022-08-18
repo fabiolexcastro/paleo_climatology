@@ -15,5 +15,6 @@ dirs <- dir_ls('SilvanaData')
 print(dirs)
 dirs <- glue('{dirs}/suisse')
 map(dirs, dir_ls)
-dirs <- glue('{dirs}/suisse/difference')
+dirs <- glue('{dirs}/difference')
+dirs <- dirs[-grep('\\+2000', dirs, value = FALSE)]
 map(dirs, dir_ls)

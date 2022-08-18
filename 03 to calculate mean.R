@@ -65,6 +65,32 @@ glne <- ggplot(data = vles, aes(x = year, y = value_change / 10)) +
 
 glne
 
+dir_create('png/graphs')
+ggsave(plot = glne, filename = glue('png/graphs/g_line_v1.png'), units = 'in', width = 8, height = 6, dpi = 300)
+
+# Secondary graph
+gln2 <- ggplot(data = vles, aes(x = year, y = value_change / 10)) + 
+  geom_line(group = 1) + 
+  labs(x = 'Year', y = 'Change value (\u00B0C)') + 
+  scale_x_continous(breaks = vles$value_change) +
+  theme_minimal() + 
+  theme(panel.grid.minor = element_blank(), 
+        axis.title.x = element_text(face = 'bold'), 
+        axis.title.y = element_text(face = 'bold'))
+
+gln2
+
+
+
+gln2 <- ggplot(data = vles, aes(x = year, y = value_change / 10)) + 
+  geom_line(group = 1) + 
+  labs(x = 'Year', y = 'Change value (\u00B0C)') + 
+  scale_x_continous(breaks = vles$year) + 
+  theme_minimal() + 
+  theme(panel.grid.minor = element_blank(), 
+        axis.text.x = element_text(angle = 90, hjust = 0.5),
+        axis.title.x = element_text(face = 'bold'), 
+        axis.title.y = element_text(face = 'bold'))
 
 
 

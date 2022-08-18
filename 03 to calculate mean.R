@@ -13,3 +13,5 @@ setwd('E:/climate_article')
 
 dirs <- dir_ls('SilvanaData')
 print(dirs)
+dirs <- glue('{dir}/suisse')
+map(dirs, dir_ls)

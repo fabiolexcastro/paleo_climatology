@@ -54,7 +54,7 @@ vles <- dplyr::select(vles, name, year, value_change)
 dir_create('tbl/results')
 write.csv(vles, 'tbl/results/time_line_difference.csv', row.names = FALSE)
 
-vles <- mutate(vles, year_real = 1950 - year)
+vles <- mutate(vles, year_real = 1950 - abs(year))
 vles
 
 # To make the graph
